@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -10,7 +11,10 @@ export class ButtonComponent {
   @Input() text: string;
   @Output() btnClick = new EventEmitter();
 
+  constructor(private router: Router) {}
   onClick() {
     this.btnClick.emit();
   }
+
+ 
 }
