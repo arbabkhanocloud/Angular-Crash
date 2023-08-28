@@ -13,6 +13,10 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PracticeComponent } from './components/practice/practice.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 const appRoutes = [
   { path: '', component: TasksComponent },
@@ -29,6 +33,7 @@ const appRoutes = [
     AddTaskComponent,
     AboutComponent,
     FooterComponent,
+    PracticeComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,8 @@ const appRoutes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes, { enableTracing: false }),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent],

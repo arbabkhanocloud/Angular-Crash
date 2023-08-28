@@ -21,6 +21,7 @@ export class AddTaskComponent {
     this.subsctiption = this.uiService.toggle().subscribe((value) => {
       this.showAddTask = value;
     });
+    // console.log('showAddrask:', this.showAddTask);
   }
 
   handleSubmit($event: any) {
